@@ -1,0 +1,38 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build_ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Run tests on Ubuntu
+        run: python -m unittest discover -s . -p "test_*.py"
+
+  build_windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Run tests on Windows
+        run: python -m unittest discover -s . -p "unittest_*.py"
