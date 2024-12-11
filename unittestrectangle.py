@@ -1,6 +1,6 @@
 # unittestrectangle.py
 import unittest
-from rectangle import area, perimeter  # Импортируем функции из rectangle.py
+from rectangle import area, perimeter  
 
 class TestRectangleFunctions(unittest.TestCase):
 
